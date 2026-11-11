@@ -1,0 +1,17 @@
+test_batch_ascii_no_bom (__main__.ContractTests.test_batch_ascii_no_bom) ... ok
+test_content_type_key_auth (__main__.ContractTests.test_content_type_key_auth) ... ok
+test_json (__main__.ContractTests.test_json) ... ok
+test_launch_profile (__main__.ContractTests.test_launch_profile) ... ok
+test_no_hardcoded_secrets (__main__.ContractTests.test_no_hardcoded_secrets) ... ok
+test_omegaai_real_paths (__main__.ContractTests.test_omegaai_real_paths) ... ok
+test_ps_51_bom (__main__.ContractTests.test_ps_51_bom) ... ok
+test_queue_does_not_expose_other_ids (__main__.ContractTests.test_queue_does_not_expose_other_ids) ... ok
+test_stream_support (__main__.ContractTests.test_stream_support) ... ok
+test_swagger_endpoints_have_header (__main__.ContractTests.test_swagger_endpoints_have_header) ... ok
+test_target_framework (__main__.ContractTests.test_target_framework) ... ok
+test_tenant_from_server_only (__main__.ContractTests.test_tenant_from_server_only) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.002s
+
+OK

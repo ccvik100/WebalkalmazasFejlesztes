@@ -1,0 +1,4 @@
+<Solution>
+  <!-- TANANYAG: A solution a lenti, fordítható ASP.NET Core projektet tartalmazza. -->
+  <Project Path="MeetingNotesAPI/MeetingNotesAPI.csproj" />
+</Solution>

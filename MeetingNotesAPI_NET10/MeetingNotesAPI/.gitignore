@@ -1,0 +1,8 @@
+# TANANYAG: a Git ne töltse fel a titkos kulcsokat, futtatási eredményeket és buildkimenetet.
+**/bin/
+**/obj/
+.vs/
+private/*.json
+private/*.txt
+*.user
+*.suo

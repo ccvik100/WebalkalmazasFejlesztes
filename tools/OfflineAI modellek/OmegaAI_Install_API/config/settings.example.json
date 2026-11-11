@@ -1,0 +1,22 @@
+{
+  "port": 8768,
+  "host": "127.0.0.1",
+  "max_audio_mb": 250,
+  "whisper_model": "models/whisper-large-v3",
+  "pyannote_model": "models/pyannote-community-1",
+  "ffmpeg": "tools/ffmpeg.exe",
+  "device": "auto",
+  "compute_type": "auto",
+  "ollama_url": "http://127.0.0.1:11434",
+  "qwen_model": "qwen3:8b",
+  "qwen_timeout_sec": 900,
+  "qwen_num_ctx": 8192,
+  "audio_chunk_seconds": 35,
+  "audio_overlap_seconds": 2,
+  "whisper_timeout_sec": 7200,
+  "diarization_timeout_sec": 7200,
+  "summary_timeout_sec": 1800,
+  "convert_timeout_sec": 900,
+  "job_timeout_sec": 14400,
+  "stall_warning_sec": 300
+}

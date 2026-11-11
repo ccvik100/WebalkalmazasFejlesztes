@@ -1,0 +1,151 @@
+{
+  "omegaai_version": "v1.6.0",
+  "source_zip": "OmegaAI_v1_6_V17_HANGPROFIL_TENANT_SQLITE_API_TELJES.zip",
+  "source_main_py_sha256": "2fc17ae248344a718fd12a71cc08400def7162c4e56cba47672477d8f73c98f2",
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/"
+    },
+    {
+      "method": "GET",
+      "path": "/health/live"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/health/ready"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/models"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/hardware"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/queue"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/chat"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/chat/stream"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/summaries"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/summaries/stream"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/audio/jobs"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/jobs/{job_id}"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/jobs/{job_id}/cancel"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/jobs/{job_id}/events"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/jobs/{job_id}/transcript"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/jobs/{job_id}/segments"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/jobs/{job_id}/summary"
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/jobs/{job_id}/speaker-names"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/jobs/{job_id}/regenerate-summary"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/voices/enroll"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/voices/match"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/tenants"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/tenants"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/tenants/{tenant_id}/persons"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/tenants/{tenant_id}/persons"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/tenants/{tenant_id}/persons/{person_id}"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/tenants/{tenant_id}/persons/{person_id}/samples"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/tenants/{tenant_id}/enrollments/{enrollment_id}"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/tenants/{tenant_id}/persons/{person_id}/samples"
+    },
+    {
+      "method": "GET",
+      "path": "/v1/tenants/{tenant_id}/persons/{person_id}/samples/{sample_id}/audio"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/tenants/{tenant_id}/persons/{person_id}/samples/{sample_id}"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/tenants/{tenant_id}/jobs/{job_id}/match"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/tenants/{tenant_id}/jobs/{job_id}/approve"
+    },
+    {
+      "method": "POST",
+      "path": "/v1/tenants/{tenant_id}/rotate-key"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/tenants/{tenant_id}"
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/jobs/{job_id}"
+    }
+  ]
+}

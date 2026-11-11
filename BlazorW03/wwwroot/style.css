@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none;
+}
+
+body {
+    margin: 0;
+    background: #edf3f2;
+    color: #18302e;
+    font: 1rem/1.55 system-ui, sans-serif;
+}
+
+main {
+    max-width: 50rem;
+    margin: 3rem auto;
+    padding: clamp(1rem, 4vw, 2.5rem);
+    background: white;
+    border: 1px solid #cad9d6;
+    border-radius: 1rem;
+}
+
+.course {
+    color: #375d59;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+}
+
+h1, h2 {
+    line-height: 1.2;
+}
+
+.demo, pre {
+    padding: 1rem;
+    background: #eef5f4;
+    border-radius: .5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: .5rem;
+    font-weight: 600;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+input, button {
+    padding: .65rem .85rem;
+    border: 1px solid #476863;
+    border-radius: .4rem;
+    font: inherit;
+}
+
+input {
+    flex: 1 1 16rem;
+    min-width: 0;
+}
+
+button {
+    background: #15574d;
+    color: white;
+    cursor: pointer;
+}
+
+button.secondary {
+    background: white;
+    color: #15574d;
+}
+
+button:disabled {
+    background: #e9eeed;
+    color: #4c625e;
+    cursor: default;
+}
+
+:focus-visible {
+    outline: 3px solid #9c500c;
+    outline-offset: 3px;
+}
+
+.error {
+    color: #a01b25;
+}
+
+section {
+    border-top: 1px solid #cad9d6;
+}
+
+pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font: inherit;
+}
+
+@media (max-width: 53rem) {
+    main {
+        margin: 1rem;
+    }
+}

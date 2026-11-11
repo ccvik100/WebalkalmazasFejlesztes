@@ -1,0 +1,37 @@
+<!-- TANANYAG: A Microsoft.NET.Sdk.Web SDK adja az ASP.NET Core API fordítási és publikálási eszközeit. -->
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <!-- TANANYAG: A PropertyGroup a teljes projekt alapbeállításait tartalmazza. -->
+  <PropertyGroup>
+    <!-- TANANYAG: A kimenet .NET 10 keretrendszert igényel; a célszerveren is megfelelő runtime kell. -->
+    <TargetFramework>net10.0</TargetFramework>
+    <!-- TANANYAG: Bekapcsolja a nullable referencia-típusok fordítói elemzését. -->
+    <Nullable>enable</Nullable>
+    <!-- TANANYAG: Az alapvető System, Task és egyéb namespace importokat a fordító automatikusan hozzáadja. -->
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- TANANYAG: A projekt típusainak alapértelmezett névtere. -->
+    <RootNamespace>MeetingNotesAPI</RootNamespace>
+    <!-- TANANYAG: A lefordított DLL neve MeetingNotesAPI.dll lesz. -->
+    <AssemblyName>MeetingNotesAPI</AssemblyName>
+    <!-- TANANYAG: A figyelmeztetések nem állítják meg a buildet; oktatáshoz hasznos, élesben érdemes szigorítani. -->
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <!-- TANANYAG: Az XML dokumentáció készül el a C# /// megjegyzésekből, amelyet a Swagger megjelenít. -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <!-- TANANYAG: Az ItemGroup itt a külső NuGet-csomagok listája. -->
+  <ItemGroup>
+    <!-- TANANYAG: A Swashbuckle.AspNetCore biztosítja az interaktív Swagger/OpenAPI felületet. -->
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.3.1" />
+  </ItemGroup>
+  <!-- TANANYAG: Itt a fájlok publish és másolási szabályai következnek. -->
+  <ItemGroup>
+    <!-- TANANYAG: Biztonság: a private könyvtár fájljait soha nem másoljuk az automatikus publikálásba. -->
+    <Content Update="private\**\*" CopyToPublishDirectory="Never" />
+    <!-- TANANYAG: A scripts mappát a később szerveren is használható szkriptekkel megtartjuk. -->
+    <None Update="scripts\**\*" CopyToPublishDirectory="PreserveNewest" />
+    <!-- TANANYAG: A scripts Content elemekre is explicit másolási szabályt adunk. -->
+    <Content Update="scripts\**\*" CopyToPublishDirectory="PreserveNewest" />
+    <!-- TANANYAG: A private fájlokra a None elem kategóriájában is tilos a publikálás. -->
+    <None Update="private\**\*" CopyToPublishDirectory="Never" />
+  </ItemGroup>
+<!-- TANANYAG: A projektleíró XML gyökérelemének lezárása. -->
+</Project>

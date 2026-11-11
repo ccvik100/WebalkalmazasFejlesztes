@@ -1,0 +1,164 @@
+@page "/"
+@rendermode InteractiveServer
+@inject MeetingService Meetings
+@inject IJSRuntime JS
+@using System.Net
+@using System.Text
+@using System.Text.Json
+@using System.Text.Encodings.Web
+@using System.Text.Unicode
+@using System.Text.RegularExpressions
+
+<main>
+    <p class="course">OMEGA MEETING NOTES · W03</p>
+    <h1>Átirat export</h1>
+    <p>Add meg a feltöltéskor kapott megbeszélés-azonosítót. A kész átiratot TXT vagy JSON formátumban mentheted.</p>
+
+    @if (Meetings.DemoMode)
+    {
+        <p class="demo">Demó mód · Az oldalon mesterséges mintaadat jelenik meg.</p>
+    }
+
+    <form @onsubmit="LoadAsync" @onsubmit:preventDefault>
+        <label for="meeting-id">Megbeszélés-azonosító</label>
+        <div class="controls">
+            <input id="meeting-id" value="@meetingId" @oninput="ChangeId" required
+                   spellcheck="false" autocomplete="off" disabled="@loading" />
+            <button type="submit" disabled="@loading">Átirat betöltése</button>
+            @if (Meetings.DemoMode)
+            {
+                <button id="demo-button" class="secondary" type="button" @onclick="LoadDemoAsync"
+                        disabled="@loading">Minta betöltése</button>
+            }
+        </div>
+    </form>
+
+    <p id="status" role="status" class="@(hasError ? "error" : "")">@message</p>
+
+    <section aria-labelledby="result-title">
+        <h2 id="result-title">@(export?.Title ?? "Átirat")</h2>
+        @if (export is not null)
+        {
+            <p>@export.StartedAt</p>
+        }
+        <div class="controls">
+            <button id="txt-button" class="secondary" @onclick="() => DownloadAsync(false)" disabled="@(export is null)">TXT letöltése</button>
+            <button id="json-button" class="secondary" @onclick="() => DownloadAsync(true)" disabled="@(export is null)">JSON letöltése</button>
+        </div>
+        @if (export is not null)
+        {
+            <pre id="transcript">@export.Transcript</pre>
+        }
+    </section>
+</main>
+
+@code {
+    private const string InitialMessage = "Az export a betöltés után lesz elérhető.";
+    private static readonly JsonSerializerOptions ExportJson = new(JsonSerializerDefaults.Web)
+    {
+        WriteIndented = true,
+        Encoder = JavaScriptEncoder.Create(UnicodeRanges.All)
+    };
+
+    private string meetingId = "";
+    private string message = InitialMessage;
+    private bool loading;
+    private bool hasError;
+    private TranscriptExport? export;
+
+    private void ChangeId(ChangeEventArgs args)
+    {
+        meetingId = args.Value?.ToString() ?? "";
+        export = null;
+        message = InitialMessage;
+        hasError = false;
+    }
+
+    private Task LoadDemoAsync()
+    {
+        meetingId = MeetingService.DemoId;
+        return LoadAsync();
+    }
+
+    private async Task LoadAsync()
+    {
+        if (loading)
+            return;
+
+        var id = meetingId.Trim().ToLowerInvariant();
+        export = null;
+        hasError = false;
+
+        if (!Regex.IsMatch(id, @"\A[a-f0-9]{32}\z"))
+        {
+            ShowError("Az azonosítónak 32 hexadecimális karakterből kell állnia.");
+            return;
+        }
+
+        loading = true;
+        message = "Betöltés…";
+
+        try
+        {
+            var (status, result) = await Meetings.LoadAsync(id);
+            if (status is "queued" or "running")
+                message = "Az átirat még készül. Próbáld meg később újra.";
+            else if (status != "completed")
+                ShowError("A feldolgozásból nem készült letölthető átirat.");
+            else if (result is null || string.IsNullOrWhiteSpace(result.Transcript))
+                message = "A megbeszéléshez nem tartozik szöveges átirat.";
+            else
+            {
+                export = result;
+                message = "Az átirat letölthető.";
+            }
+        }
+        catch (HttpRequestException error)
+        {
+            ShowError(error.StatusCode switch
+            {
+                HttpStatusCode.NotFound => "A megbeszélés vagy az átirat nem található.",
+                HttpStatusCode.Unauthorized or HttpStatusCode.Forbidden => "Az API elutasította a hozzáférést. Ellenőrizd a szerver beállításait.",
+                _ => "A MeetingNotesAPI nem tudta kiszolgálni a kérést."
+            });
+        }
+        catch (OperationCanceledException)
+        {
+            ShowError("A MeetingNotesAPI nem válaszolt időben.");
+        }
+        catch (InvalidOperationException)
+        {
+            ShowError("Ellenőrizd a szerveren a MeetingNotesAPI címét és kulcsát.");
+        }
+        catch (Exception error) when (error is JsonException or InvalidDataException or NotSupportedException)
+        {
+            ShowError("A MeetingNotesAPI válasza nem olvasható.");
+        }
+        finally
+        {
+            loading = false;
+        }
+    }
+
+    private void ShowError(string text)
+    {
+        message = text;
+        hasError = true;
+    }
+
+    private async Task DownloadAsync(bool json)
+    {
+        if (export is null)
+            return;
+
+        var content = json
+            ? JsonSerializer.Serialize(export, ExportJson)
+            : export.Transcript;
+        var extension = json ? "json" : "txt";
+        var type = json ? "application/json" : "text/plain";
+        var filename = $"atirat-{export.Id[..8]}.{extension}";
+
+        using var stream = new DotNetStreamReference(new MemoryStream(Encoding.UTF8.GetBytes(content)));
+        await JS.InvokeVoidAsync("saveTranscript", filename, type, stream);
+    }
+}

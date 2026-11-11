@@ -1,0 +1,4 @@
+# Ellenorzott API konyvtar-verziok; Python 3.12 x64.
+fastapi==0.128.2
+uvicorn==0.48.0
+python-multipart==0.0.29

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="/" />
+    <title>Átirat export | Omega Meeting Notes</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <Router AppAssembly="typeof(App).Assembly">
+        <Found Context="routeData">
+            <RouteView RouteData="routeData" />
+        </Found>
+    </Router>
+    <script src="download.js"></script>
+    <script src="_framework/blazor.web.js"></script>
+</body>
+</html>

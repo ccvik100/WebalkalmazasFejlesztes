@@ -1,0 +1,7 @@
+# A korabbi Windows telepitesi naploban szereplo AI verzio-bazis.
+# Az alabbiak valos Windowsos inferencia-próbája meg elvegzendo.
+faster-whisper==1.2.1
+huggingface-hub==1.33.0
+pyannote.audio==4.0.7
+# faster-whisper 1.2.1 PyAV 19 mellett metadata_errors hibara fut; pin az ismetelhetoseghez.
+av==18.1.0

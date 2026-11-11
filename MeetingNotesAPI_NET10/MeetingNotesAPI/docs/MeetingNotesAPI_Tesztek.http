@@ -1,0 +1,39 @@
+# Visual Studio HTTP kliens tesztek – fejlesztői gépen
+# A kulcsot NE commitold és ne oszd meg. Ide teszteléskor másold be.
+@base = http://localhost:5200
+@key = CSERELD_A_PRIVATE_KLIENSKULCSRA
+
+# TANANYAG: Ez a próba nem vizsgálja a mesterséges intelligenciát; csak a .NET webszerver életjelét.
+### 1. MeetingNotesAPI önálló health
+GET {{base}}/api/health/live
+
+# TANANYAG: Itt már szükséges a klienskulcs, mert a .NET API a belső OmegaAI-t is lekérdezi.
+### 2. OmegaAI elérhető-e?
+GET {{base}}/api/health/omegaai
+X-Meeting-Key: {{key}}
+
+# TANANYAG: Csak darabszámok jelennek meg, nem más alkalmazások feladatszámai.
+### 3. Központi munkasor
+GET {{base}}/api/queue
+X-Meeting-Key: {{key}}
+
+# TANANYAG: A Content-Type: application/json azt jelenti, hogy a törzs szöveges JSON adat.
+### 4. Qwen szöveges próba
+POST {{base}}/api/ai/chat
+X-Meeting-Key: {{key}}
+Content-Type: application/json
+
+{"prompt":"Foglald össze három mondatban az offline AI előnyét."}
+
+# TANANYAG: Már elkészült szövegből generál összesítőt; nem végez új hangfelismerést.
+### 5. Átiratból összesítő készítése
+POST {{base}}/api/ai/summaries
+X-Meeting-Key: {{key}}
+Content-Type: application/json
+
+{"transcript":"[00:00:01] SPEAKER_00: Holnap egyeztetjük a feladatokat.","title":"Mintamegbeszélés","startedAt":"2026-11-08T19:00:00+01:00"}
+
+# TANANYAG: A POST /api/meetings válaszából kapott azonosítóval lekérdezhető a sorpozíció és a progress.
+### 6. Egy korábbi feladat állapota – helyettesítsd az ID-t
+GET {{base}}/api/meetings/ID_HELYERE
+X-Meeting-Key: {{key}}

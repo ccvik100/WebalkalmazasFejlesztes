@@ -1,0 +1,22 @@
+{
+  "MeetingNotesAPI/Controllers/AiController.cs": "7a8396cbd9f4d413750e3127d1958956605242a2e6a5ca63ffbe1ac3eaba7dc5",
+  "MeetingNotesAPI/Controllers/MeetingsController.cs": "bb47b61ec21aee336b9f14b7ff9ee32f688799e166fc59cb6c51efe38cf97aae",
+  "MeetingNotesAPI/Controllers/PeopleController.cs": "9aa4468ab134dee2f415966b1f8b631f864973fa0afa883732b6bc0020c607c7",
+  "MeetingNotesAPI/Controllers/SpeakerIdentificationController.cs": "6fcb4dc363b80638aaa7165af0ee14449a5fb6843e9f248f80f76fe1762c2a52",
+  "MeetingNotesAPI/Controllers/SystemController.cs": "2bc500fdd056613af6d8eff6af3b8d3609c3c7f6403ad2a7d1847f63e88529c4",
+  "MeetingNotesAPI/Infrastructure/ClientKeyMiddleware.cs": "e39a40674fe54dd71901c31eb608d6adbbe29c0076510bcb7fb37fb89b9e41de",
+  "MeetingNotesAPI/Infrastructure/OmegaAiGateway.cs": "979fa079999d55bcd36f6bb3467630c37e22958fa31c6d9c9c8bec3097dd8f20",
+  "MeetingNotesAPI/MeetingNotesAPI.csproj": "8a140824c85e8ac17677579b48fbfbf18d580204dcff6288e571b2593365c748",
+  "MeetingNotesAPI/Models/Contracts.cs": "35f01263e8a694f6fade3b0357f71141e7c5e777a8ddeb47fa468652be9ca26f",
+  "MeetingNotesAPI/Models/MeetingOptions.cs": "84dfaea549d871f12b2baec093f7a62be8a51efd0d0d5a2f91d8bd79c51061b5",
+  "MeetingNotesAPI/Program.cs": "0efdee80098b57b614c3f19a78ff0e0dd82519d19f77daf30bc77568942e435f",
+  "MeetingNotesAPI/scripts/01_KONFIGURALAS.bat": "3570c426d648721bf40436731025838cd9a494274dcf70bc6e64232bfdff2761",
+  "MeetingNotesAPI/scripts/02_ELLENORZES.bat": "9f4948ae647c56f736d4546fdcc44c35f5fb5af43efdd17ba864f580246251d1",
+  "MeetingNotesAPI/scripts/03_INDITAS.bat": "2e02020d4618f1c6808a568957320b75b77ba8c94590d6622205e2fb4b42e907",
+  "MeetingNotesAPI/scripts/04_TEST_API.bat": "0bb817616b05e13793dc7eb0dff4b1511514c8bf8b38b639cf5492ba4f8cc901",
+  "MeetingNotesAPI/scripts/05_PUBLISH.bat": "d299428c66f7e3ca11a17e7078d458a40d99b68294530443557a427be2cd5845",
+  "MeetingNotesAPI/scripts/06_BUILD_ELLENORZES.bat": "3ab5c88881c2c9eac60b9c47ed01a51bdc350310b4f9d7bfd8d69cc3d9ca7d87",
+  "MeetingNotesAPI/scripts/Check.ps1": "a3c7674bc0cea6261945dd3b8c2a4701bda0fbbb1cebcfc4dda2318028f3111f",
+  "MeetingNotesAPI/scripts/Configure.ps1": "1b15433d4865d5a9609114c281818b08c687ea3cff8cb7ff3eead0395bc18b13",
+  "MeetingNotesAPI/scripts/TestApi.ps1": "3a7de6a4577b70d3da20efc6cd2f0c1c4a1940bd8b2f4bbe7a61675635afce22"
+}

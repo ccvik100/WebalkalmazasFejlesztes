@@ -1,0 +1,6 @@
+.\scripts\07_UJRAKONFIGURALAS.bat
+
+.\scripts\03_INDITAS.bat
+
+(Get-Content '.\private\meetingnotes.secrets.json' -Raw |
+ConvertFrom-Json).MeetingNotes.Clients[0].ClientKey

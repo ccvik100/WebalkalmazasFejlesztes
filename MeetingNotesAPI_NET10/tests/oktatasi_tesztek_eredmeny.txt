@@ -1,0 +1,24 @@
+test_batch_encoding_and_first_line (test_kommentek_valtozatlan_kod.TeacherCommentIntegrityTests.test_batch_encoding_and_first_line) ... ok
+test_explanations_present (test_kommentek_valtozatlan_kod.TeacherCommentIntegrityTests.test_explanations_present) ... ok
+test_original_program_statements_unchanged (test_kommentek_valtozatlan_kod.TeacherCommentIntegrityTests.test_original_program_statements_unchanged)
+Közel soronként kommenteltünk, de a futó utasításokat egyáltalán nem írtuk át. ... ok
+test_powershell_51_utf8_bom (test_kommentek_valtozatlan_kod.TeacherCommentIntegrityTests.test_powershell_51_utf8_bom) ... ok
+test_private_secrets_absent (test_kommentek_valtozatlan_kod.TeacherCommentIntegrityTests.test_private_secrets_absent) ... ok
+test_project_xml_is_valid (test_kommentek_valtozatlan_kod.TeacherCommentIntegrityTests.test_project_xml_is_valid) ... ok
+test_batch_ascii_no_bom (verify_project.ContractTests.test_batch_ascii_no_bom) ... ok
+test_content_type_key_auth (verify_project.ContractTests.test_content_type_key_auth) ... ok
+test_json (verify_project.ContractTests.test_json) ... ok
+test_launch_profile (verify_project.ContractTests.test_launch_profile) ... ok
+test_no_hardcoded_secrets (verify_project.ContractTests.test_no_hardcoded_secrets) ... ok
+test_omegaai_real_paths (verify_project.ContractTests.test_omegaai_real_paths) ... ok
+test_ps_51_bom (verify_project.ContractTests.test_ps_51_bom) ... ok
+test_queue_does_not_expose_other_ids (verify_project.ContractTests.test_queue_does_not_expose_other_ids) ... ok
+test_stream_support (verify_project.ContractTests.test_stream_support) ... ok
+test_swagger_endpoints_have_header (verify_project.ContractTests.test_swagger_endpoints_have_header) ... ok
+test_target_framework (verify_project.ContractTests.test_target_framework) ... ok
+test_tenant_from_server_only (verify_project.ContractTests.test_tenant_from_server_only) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.011s
+
+OK

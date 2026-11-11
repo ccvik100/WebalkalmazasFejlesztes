@@ -1,0 +1,9 @@
+/.venv/
+/.cache/
+/config/api-key.txt
+/config/settings.json
+/data/
+/models/
+/tools/
+__pycache__/
+.pytest_cache/
